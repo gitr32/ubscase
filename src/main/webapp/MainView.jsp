@@ -2,12 +2,65 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" media="screen" href="bootstrap/bootstrap.css">
-        <script src="http://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="bootstrap/simple-sidebar.css">
+        <script src="bootstrap/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <input class='btn' type="submit" value='Hello'>
-        <img src="images/jbosscorp_logo.png">
+
+
+        <div id='wrapper'>
+            <div id="sidebar-wrapper">
+
+
+                <div class="sidebar-nav">
+                    <ul class = 'unstyled'>
+                        <li>
+                            <a href="#">My Account</a>
+                        </li>
+                        <li>
+                            <a href="#">Investing</a>
+                        </li>
+                        <li>
+                            <a href="#">Funds Transfer</a>
+                        </li>
+                        <li>
+                            <a href="#">Bill Payment</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <table class='table'>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Balance
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Remy
+                    </td>
+                    <td>
+                        10000
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
     </body>
 </html>
