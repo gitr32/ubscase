@@ -6,9 +6,10 @@
 
         <script src="bootstrap/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="bootstrap/highchart.js"></script>
+        <script src="bootstrap/ticker.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     </head>
     <body>
@@ -23,39 +24,51 @@
                 <ul class="dropdown-menu">
                     <li><a href='#'>First Link</a></li>
                     <li><a href='#'>Second Link</a></li>
-                    
+
                 </ul>
             </li>
             <li>
-                 <a href='#'>Investing</a>
+                <a href='#'>Investing</a>
             </li>
             <li>
-                 <a href='#'>Funds Transfer</a>
+                <a href='#'>Funds Transfer</a>
             </li>
             <li>
-                 <a href='#'>Bill Payments</a>
+                <a href='#'>Bill Payments</a>
             </li>
-           
+
         </ul>
         <br/>
         <table class='table'>
             <tr>
                 <th>
-                    Name
+                    Trades
                 </th>
                 <th>
-                    Balance
+                    Volume
+                </th>
+                <th>
+                    Profit
                 </th>
             </tr>
             <tr>
                 <td>
-                    Remy
+                    GOOG
+                </td>
+                <td>
+                    1000000
                 </td>
                 <td>
                     10000
                 </td>
             </tr>
         </table>
+
+        <div id='chartDemoContainer'>
+            <script>
+                new Markit.InteractiveChartApi('GOOG', 3650);
+            </script>
+        </div>
 
     </body>
 </html>
