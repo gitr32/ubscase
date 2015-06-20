@@ -125,7 +125,13 @@ Markit.InteractiveChartApi.prototype.render = function (data) {
             'month',
             [1, 2, 3, 4, 6]
         ]];
+    var actualWidth;
 
+    if (navigator.userAgent.match(/Mobi/)) {
+        actualWidth = 400;
+    } else {
+        actualWidth = 1000;
+    }
     // create the chart
     $('#chartDemoContainer').highcharts('StockChart', {
         rangeSelector: {
@@ -134,6 +140,9 @@ Markit.InteractiveChartApi.prototype.render = function (data) {
         },
         title: {
             text: this.symbol + ' Historical Price'
+        },
+        chart: {
+            width : actualWidth
         },
         yAxis: [{
                 labels: {

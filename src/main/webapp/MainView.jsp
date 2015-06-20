@@ -64,7 +64,7 @@
             </tr>
         </table>
 
-        <div id='chartDemoContainer'>
+        <div id='chartDemoContainer' style="width: '100%';">
             <script>
                 new Markit.InteractiveChartApi('GOOG', 3650);
             </script>
