@@ -21,9 +21,7 @@ Markit.InteractiveChartApi.prototype.PlotChart = function () {
 
     //Make JSON request for timeseries data
     $.ajax({
-        beforeSend: function () {
-            $("#chartDemoContainer").text("Loading chart...");
-        },
+        
         data: params,
         url: "http://dev.markitondemand.com/Api/v2/InteractiveChart/jsonp",
         dataType: "jsonp",
@@ -189,3 +187,4 @@ Markit.InteractiveChartApi.prototype.render = function (data) {
         }
     });
 };
+

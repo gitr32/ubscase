@@ -3,11 +3,12 @@
 <html>
     <head>
         <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
-
+        
         <script src="bootstrap/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/highchart.js"></script>
         <script src="bootstrap/ticker.js"></script>
+        <script src="bootstrap/timer.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,23 +19,15 @@
                 <a class="dropdown-toggle"
                    data-toggle="dropdown"
                    href="#">
-                    Home
+                    Menu
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href='#'>First Link</a></li>
-                    <li><a href='#'>Second Link</a></li>
-
+                    <li><a href='#'>Investing</a></li>
+                    <li><a href='#'>Funds Transfer</a></li>
+                    <li><a href='#'>Transaction History</a></li>
+                    <li><a href='Login.jsp'>Logout</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href='#'>Investing</a>
-            </li>
-            <li>
-                <a href='#'>Funds Transfer</a>
-            </li>
-            <li>
-                <a href='#'>Bill Payments</a>
             </li>
 
         </ul>
@@ -63,10 +56,20 @@
                 </td>
             </tr>
         </table>
-
+        <br/>
+        Symbol Name: <input class = 'input-small' type="text" id = "symbolName">
+        <button type='button' class ='btn' name="searchGraph">Find</button>
         <div id='chartDemoContainer' style="width: '100%';">
             <script>
-                new Markit.InteractiveChartApi('GOOG', 3650);
+                $(document).ready(function () {
+
+                    new Markit.InteractiveChartApi("GOOG", 3650); //5 seconds
+                    
+                    $('[name="searchGraph"]').click(function () {
+                        var symbol = $("#symbolName").val();
+                        new Markit.InteractiveChartApi(symbol, 3650);
+                    });
+                });
             </script>
         </div>
 
