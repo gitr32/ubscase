@@ -6,7 +6,7 @@
               maxIdle="4" 
               name="jdbc/ubscase" 
               type="javax.sql.DataSource" 
-              url="jdbc:mysql://localhost:8889/ubscase" 
+              url="jdbc:mysql://127.8.77.130:3306/ubscase" 
               username="root"
               password="root" />
 </Context>
