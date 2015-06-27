@@ -1,3 +1,7 @@
-The OpenShift `jbossews` cartridge documentation can be found at:
+Login Page Login Credentials:
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#tomcat
+(CASE-SENSITIVE)
+username : admin
+password : pass
+
+Code at Validation Page = 123456
