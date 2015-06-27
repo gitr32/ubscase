@@ -10,9 +10,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
-
-        <title>JSP Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Stock Purchase</title>
     </head>
     <body>
         <%

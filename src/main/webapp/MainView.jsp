@@ -15,6 +15,13 @@
         <script src="bootstrap/timer.js"></script>
     </head>
     <body>
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                rd.forward(request, response);
+            }
+        %>
         <ul class='nav nav-pills'>
             <li class="dropdown">
                 <a class="dropdown-toggle"
@@ -116,6 +123,6 @@
                 });
             </script>
         </div>
-    
+
     </body>
 </html>
