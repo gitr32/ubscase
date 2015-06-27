@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import com.ubscase.utility.*;
 
 /**
  *
