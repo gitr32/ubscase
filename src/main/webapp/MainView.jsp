@@ -23,6 +23,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a href='Account.jsp'>Accounts</a></li>
                     <li><a href='MainView.jsp'>Investing</a></li>
                     <li><a href='FundsTransfer.jsp'>Funds Transfer</a></li>
                     <li><a href='Transaction.jsp'>Transaction History</a></li>
@@ -31,8 +32,8 @@
             </li>
 
         </ul>
-        <h5>My Balance: 10000</h5>
-        <table class='table'>
+        <h5>Account: Account1 &nbsp;&nbsp; My Balance: 1000,000.00</h5>
+        <table class='table table-hover'>
             <tr>
                 <th>
                     Trades
@@ -46,19 +47,25 @@
                 <th>
                     Profit
                 </th>
+                <th>
+                    
+                </th>
             </tr>
             <tr>
                 <td>
                     GOOG
                 </td>
                 <td>
-                    1000000
+                    1000
                 </td>
                 <td>
-                    570.00
+                    558.30 
+               </td>
+                <td>
+                    0.0
                 </td>
                 <td>
-                    10000
+                    <a href='#'>Close</a>
                 </td>
             </tr>
         </table>

@@ -26,7 +26,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href='Investing.jsp'>Investing</a></li>
+                    <li><a href='MainView.jsp'>Investing</a></li>
                     <li><a href='FundsTransfer.jsp'>Funds Transfer</a></li>
                     <li><a href='Transaction.jsp'>Transaction History</a></li>
                     <li><a href='Login.jsp'>Logout</a></li>
@@ -47,11 +47,22 @@
                 </th>
             </tr>
             <tr>
-                <td>
-                    26/5/2015 19:35
+                 <td>
+                    26/5/2015 20:49
                 </td>
                 <td>
-                    5000.00
+                    2000.00
+                </td>
+                <td>
+                    Funds Transfer
+                </td>   
+            </tr>
+            <tr>
+                <td>
+                    26/5/2015 20:48
+                </td>
+                <td>
+                    558,300.00
                 </td>
                 <td>
                     Investment

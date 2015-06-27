@@ -42,7 +42,7 @@
                         Price:
                     </td>
                     <td>
-                        <input class='input-small' name="price" value='570.00' disabled>
+                        <input class='input-small' name="price" value='558.30' disabled>
                     </td>
                        
                 </tr>
@@ -79,21 +79,7 @@
 
         </form>
 
-        <script>
-            new Markit.QuoteService(, function (jsonResult) {
 
-                this.clearResult();
-
-                //Catch errors
-                if (!jsonResult || jsonResult.Message) {
-                    this.renderAlert(jsonResult);
-                    return;
-                }
-
-                this.success(jsonResult);
-
-            });
-        </script>
 
     </body>
 </html>
