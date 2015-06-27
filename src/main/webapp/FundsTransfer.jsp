@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="java.text.*"%>
+<%@page import="javax.servlet.http.HttpSession" %>
 <%@page import="com.ubscase.model.*"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,13 @@
         <title>Funds Transfer</title>
     </head>
     <body>
+        <%
+            String username = (String) session.getAttribute("username");
+            if(username == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                rd.forward(request,response);
+            }
+            %>
         <ul class='nav nav-pills'>
             <li class="dropdown">
                 <a class="dropdown-toggle"
@@ -49,7 +57,6 @@
             </tr>
             <%
                 DecimalFormat df = new DecimalFormat("###,###.00");
-                String username = (String) session.getAttribute("username");
                 Account curAccount = (Account) session.getAttribute("account");
                 AccountList accounts = new AccountList(username);
                 ArrayList<Account> accountList = accounts.retrieveAccounts();

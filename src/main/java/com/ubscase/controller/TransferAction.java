@@ -63,7 +63,6 @@ public class TransferAction extends org.apache.struts.action.Action {
             
             Account newAccount = accountList.updateAccount(account.getAccountNo(),trfAccount , dblAmount);
             session.setAttribute("account", newAccount);
-            
         }
         
         

@@ -18,7 +18,13 @@
         <title>Account</title>
     </head>
     <body>
-
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                rd.forward(request, response);
+            }
+        %>
 
         <ul class='nav nav-pills'>
             <li class="dropdown">
@@ -40,7 +46,7 @@
         </ul>
 
         <%
-            String username = (String) session.getAttribute("username");
+            
             AccountList accounts = new AccountList(username);
             ArrayList<Account> accountList = accounts.retrieveAccounts();
         %>
@@ -60,7 +66,7 @@
                         DecimalFormat df = new DecimalFormat("###,###.00");
                         for (Account a : accountList) {
                             out.println("<tr>");
-                            out.println("<td><input name='selected' type='radio' value='"+ i +"'/>");
+                            out.println("<td><input name='selected' type='radio' value='" + i + "'/>");
                             out.println("<td>");
                             out.println(a.getAccountNo());
                             out.println("</td>");
