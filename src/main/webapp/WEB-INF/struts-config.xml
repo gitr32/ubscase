@@ -34,6 +34,9 @@
         <action path="/transfer" type="com.ubscase.controller.TransferAction">
             <forward name="success" path="/MainView.jsp"/>
         </action>
+        <action path="/trade" type="com.ubscase.controller.TradeAction">
+            <forward name="success" path="/MainView.jsp"/>
+        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

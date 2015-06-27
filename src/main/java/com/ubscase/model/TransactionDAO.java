@@ -46,10 +46,11 @@ public class TransactionDAO {
             rs = ps.executeQuery();
              
             while(rs.next()) {
+                int transID = rs.getInt("transID");
                 Date date = rs.getDate("transDate");
                 double amount = rs.getDouble("amount");
                 String purpose = rs.getString("purpose");
-                transactionList.add(new Transaction(accountNo,date,amount,purpose));
+                transactionList.add(new Transaction(transID,accountNo,date,amount,purpose));
             }
         } catch (Exception e) {
             
@@ -91,11 +92,12 @@ public class TransactionDAO {
 
             con = datasource.getConnection();
 
-            ps = con.prepareStatement("insert into transaction values (?,?,?,?)");
-            ps.setString(1, accountNo);
-            ps.setDate(2,date);
-            ps.setDouble(3, amount);
-            ps.setString(4, purpose);
+            ps = con.prepareStatement("insert into transaction values (?,?,?,?,?)");
+            ps.setInt(1, 0);
+            ps.setString(2, accountNo);
+            ps.setDate(3,date);
+            ps.setDouble(4, amount);
+            ps.setString(5, purpose);
             ps.executeUpdate();
 
         } catch (Exception e) {

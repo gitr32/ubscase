@@ -11,21 +11,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
-        <script src="bootstrap/quote.js"></script>
+
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+                rd.forward(request, response);
+            }
+
+        %>
         <br>
-        <form action='MainView.jsp' method='POST'>
-            <%
-                ArrayList<String> symbols = new ArrayList<String>();
+        <form action='trade.do' method='POST'>
+            <%                ArrayList<String> symbols = new ArrayList<String>();
                 symbols.add("AAPL");
                 symbols.add("S&P");
                 symbols.add("GOOG");
                 String stockSymbol = request.getParameter("stockSymbol");
             %>
 
-            <select name="Dropdown">
+            <select name="symbol">
                 <%
                     for (String s : symbols) {
                         if (!s.equals(stockSymbol)) {
@@ -42,9 +49,9 @@
                         Price:
                     </td>
                     <td>
-                        <input class='input-small' name="price" value='558.30' disabled>
+                        <input class='input-small' name="price" value='558.30'readonly>
                     </td>
-                       
+
                 </tr>
                 <tr>
                     <td>
@@ -56,30 +63,10 @@
                 </tr>
                 <tr>
                     <td>
-                        Stop Loss:
-                    </td>
-                    <td>
-                        <input class='input-small' name="stoploss">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Take Profit:
-                    </td>
-                    <td>
-                        <input class='input-small' name="takeprofit">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         <input class='btn' type='submit' value='Trade'>
                     </td>
                 </tr>
             </table>
-
         </form>
-
-
-
     </body>
 </html>

@@ -37,6 +37,7 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a href='Account.jsp'>Accounts</a></li>
                     <li><a href='MainView.jsp'>Investing</a></li>
                     <li><a href='FundsTransfer.jsp'>Funds Transfer</a></li>
                     <li><a href='Transaction.jsp'>Transaction History</a></li>

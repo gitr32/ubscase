@@ -11,18 +11,29 @@ import java.util.*;
  * @author r128
  */
 public class Transaction {
+    private int transID;
     private String accountNo;
     private Date date;
     private double amount;
     private String purpose;
 
-    public Transaction(String accountNo, Date date, double amount, String purpose) {
+    public Transaction(int transID, String accountNo, Date date, double amount, String purpose) {
+        this.transID = transID;
         this.accountNo = accountNo;
         this.date = date;
         this.amount = amount;
         this.purpose = purpose;
     }
 
+    public int getTransID() {
+        return transID;
+    }
+
+    public void setTransID(int transID) {
+        this.transID = transID;
+    }
+    
+    
     public Date getDate() {
         return date;
     }
