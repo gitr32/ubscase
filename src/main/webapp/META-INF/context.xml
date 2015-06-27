@@ -7,6 +7,6 @@
               name="jdbc/ubscase" 
               type="javax.sql.DataSource" 
               url="jdbc:mysql://127.8.77.130:3306/ubscase" 
-              username="root"
-              password="root" />
+              username="adminwawaC1H"
+              password="XENwiC-dWDkp" />
 </Context>
