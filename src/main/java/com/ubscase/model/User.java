@@ -10,20 +10,20 @@ package com.ubscase.model;
  * @author r128
  */
 public class User {
-    private String user;
+    private String username;
     private String password;
     
-    public User(String user, String password) {
+    public User(String username, String password) {
         this.password = password;
-        this.user = user;
+        this.username = username;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -33,6 +33,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+    public String toString() {
+        return username+password;
+    }
     
 }

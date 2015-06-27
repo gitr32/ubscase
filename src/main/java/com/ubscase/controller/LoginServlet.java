@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import javax.servlet.http.HttpSession;
 import java.util.*;
+import com.ubscase.model.*;
 
 /**
  *
@@ -36,17 +38,25 @@ public class LoginServlet extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
-        
+
         ArrayList<String> errorList = new ArrayList<String>();
         
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        if(!username.equals("admin") || !password.equals("pass")) {
-            errorList.add("A valid username/password");
-        }
+        User user = new User(username, password);
+        UserDAO userDAO = new UserDAO();
         
+        User retrieveUser = userDAO.getUser(user);
+        
+        if(retrieveUser == null) {
+            errorList.add("A valid username/password");
+        }else {
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            AccountList accountList = new AccountList(username);
+            accountList.retrieveAccounts();
+        }
         if(errorList.isEmpty()) {
             return mapping.findForward(SUCCESS);
         }

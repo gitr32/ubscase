@@ -1,17 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<%@page import="java.text.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <script src="bootstrap/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/highchart.js"></script>
         <script src="bootstrap/ticker.js"></script>
         <script src="bootstrap/timer.js"></script>
-        
-
     </head>
     <body>
         <ul class='nav nav-pills'>
@@ -32,7 +32,15 @@
             </li>
 
         </ul>
-        <h5>Account: Account1 &nbsp;&nbsp; My Balance: 1000,000.00</h5>
+        <h5>
+            <%
+                session = request.getSession();
+                String balance = (String)session.getAttribute("balance");
+                String account = (String) session.getAttribute("account");
+                double dblBalance = Double.parseDouble(balance);
+                DecimalFormat df = new DecimalFormat("###,###.00");
+                out.println(df.format(dblBalance));
+            %></h5>
         <table class='table table-hover'>
             <tr>
                 <th>
@@ -48,7 +56,7 @@
                     Profit
                 </th>
                 <th>
-                    
+
                 </th>
             </tr>
             <tr>
@@ -60,7 +68,7 @@
                 </td>
                 <td>
                     558.30 
-               </td>
+                </td>
                 <td>
                     0.0
                 </td>
@@ -71,37 +79,37 @@
         </table>
         <br/>
         <form action="BuyStock.jsp" method="POST">
-        <table>
-            <tr>
-                <td>
-                    Symbol Name: <input class = 'input-small' type="text" id = "symbolName">
-                </td>
-        
-                <td style='vertical-align: top'>
-                    <button type='button' class ='btn' name="searchGraph">Find</button>
-                </td>
-                <td>
-                    <input type='hidden' name='stockSymbol' value='GOOG'>
-                </td>
-                <td  style='vertical-align: top'>
-                    <input type='submit' class='btn' value='Buy Stock'>
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td>
+                        Symbol Name: <input class = 'input-small' type="text" id = "symbolName">
+                    </td>
+
+                    <td style='vertical-align: top'>
+                        <button type='button' class ='btn' name="searchGraph">Find</button>
+                    </td>
+                    <td>
+                        <input type='hidden' name='stockSymbol' value='GOOG'>
+                    </td>
+                    <td  style='vertical-align: top'>
+                        <input type='submit' class='btn' value='Buy Stock'>
+                    </td>
+                </tr>
+            </table>
         </form>
         <div id='chartDemoContainer' style="width: '100%';">
             <script>
                 $(document).ready(function () {
 
                     new Markit.InteractiveChartApi("GOOG", 3650); //5 seconds
-                    
+
                     $('[name="searchGraph"]').click(function () {
                         var symbol = $("#symbolName").val();
-                        if(symbol != "") {
+                        if (symbol != "") {
                             $('[name="stocksymbol"]').val(symbol);
                             new Markit.InteractiveChartApi(symbol, 3650);
                         }
-                        
+
                     });
                 });
             </script>

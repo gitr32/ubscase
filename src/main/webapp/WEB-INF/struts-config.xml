@@ -24,8 +24,11 @@
             <forward name="error" path="/Login.jsp"/>
         </action>
         <action path="/validation" type="com.ubscase.controller.ValidationServlet">
-            <forward name="success" path="/MainView2.jsp"/>
+            <forward name="success" path="/MainView.jsp"/>
             <forward name="error" path="/Validation.jsp"/>
+        </action>
+        <action path="/select_account" type="com.ubscase.controller.SelectAccount">
+            <forward name="success" path="/MainView.jsp"/>
         </action>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>

@@ -23,7 +23,6 @@
             %>
         </ul>
         
-        
         Press the button to send a validation code to your mobile phone
         <br>
         <button class='btn' name='sendButton'>Send Code</button>

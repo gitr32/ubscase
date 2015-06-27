@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/ubscase">
     <Resource auth="Container" 
-            driverClassName="com.mysql.jdbc.Driver" 
-            maxActive="8" 
-            maxIdle="4" 
-            name="jdbc/dvdlibrary" 
-            password="root" 
-            type="javax.sql.DataSource" 
-            url="jdbc:mysql://localhost:8889/ubscase" 
-            username="root"/>
+              driverClassName="com.mysql.jdbc.Driver" 
+              maxActive="8" 
+              maxIdle="4" 
+              name="jdbc/ubscase" 
+              type="javax.sql.DataSource" 
+              url="jdbc:mysql://localhost:8889/ubscase" 
+              username="root"
+              password="root" />
 </Context>

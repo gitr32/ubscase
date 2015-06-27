@@ -11,11 +11,13 @@ import java.util.*;
  * @author r128
  */
 public class Transaction {
+    private String accountNo;
     private Calendar date;
     private double amount;
     private String purpose;
 
-    public Transaction(Calendar date, double amount, String purpose) {
+    public Transaction(String accountNo, Calendar date, double amount, String purpose) {
+        this.accountNo = accountNo;
         this.date = date;
         this.amount = amount;
         this.purpose = purpose;
@@ -43,6 +45,14 @@ public class Transaction {
 
     public void setPurpose(String purpose) {
         this.purpose = purpose;
+    }
+
+    public String getAccountNo() {
+        return accountNo;
+    }
+
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
     }
     
     

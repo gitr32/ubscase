@@ -10,22 +10,12 @@ package com.ubscase.model;
  * @author r128
  */
 public class Account {
-    private String accountUser;
     private String accountNo;
     private double balance;
 
-    public Account(String accountUser, String accountNo, double balance) {
-        this.accountUser = accountUser;
+    public Account(String accountNo, double balance) {
         this.accountNo = accountNo;
         this.balance = balance;
-    }
-
-    public String getAccountUser() {
-        return accountUser;
-    }
-
-    public void setAccountUser(String accountUser) {
-        this.accountUser = accountUser;
     }
 
     public String getAccountNo() {
