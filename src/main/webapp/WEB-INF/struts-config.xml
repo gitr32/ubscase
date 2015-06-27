@@ -19,18 +19,21 @@
     </global-forwards>
 
     <action-mappings>
-        <action path="/login" type="com.ubscase.controller.LoginServlet">
+        <action path="/login" type="com.ubscase.controller.LoginAction">
             <forward name="success" path="/Validation.jsp"/>
             <forward name="error" path="/Login.jsp"/>
         </action>
-        <action path="/validation" type="com.ubscase.controller.ValidationServlet">
+        <action path="/validation" type="com.ubscase.controller.ValidationAction">
             <forward name="success" path="/MainView.jsp"/>
             <forward name="error" path="/Validation.jsp"/>
         </action>
-        <action path="/select_account" type="com.ubscase.controller.SelectAccount">
+        
+        <action path="/select_account" type="com.ubscase.controller.SelectAccountAction">
             <forward name="success" path="/MainView.jsp"/>
         </action>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/transfer" type="com.ubscase.controller.TransferAction">
+            <forward name="success" path="/MainView.jsp"/>
+        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

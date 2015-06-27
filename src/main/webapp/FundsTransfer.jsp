@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<%@page import="java.text.*"%>
+<%@page import="com.ubscase.model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,32 +47,28 @@
                     Balance
                 </th>
             </tr>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td id='acc1'>
-                    1,000,000.00
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2
-                </td>
-                <td id='acc2'>
-                    500,000.00
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3
-                </td>
-                <td>
-                    200,000.00
-                </td>
-            </tr>
+            <%
+                DecimalFormat df = new DecimalFormat("###,###.00");
+                String username = (String) session.getAttribute("username");
+                Account curAccount = (Account) session.getAttribute("account");
+                AccountList accounts = new AccountList(username);
+                ArrayList<Account> accountList = accounts.retrieveAccounts();
+                for (Account a : accountList) {
+                    out.println("<tr>");
+                    out.println("<td>");
+                    out.println(a.getAccountNo());
+                    out.println("</td>");
+                    out.println("<td>");
+                    out.println(df.format(a.getBalance()));
+                    out.println("</td>");
+                    out.println("</tr>");
+                }
+            %>
         </table>
         <br>
+
+        <form action='transfer.do' method='POST'>
+
 
 
             <table class='table'>
@@ -78,16 +77,21 @@
                         Current Account:
                     </td>
                     <td>
-                        Account 1
+                        <%=curAccount.getAccountNo()%>
                     </td> 
                 </tr>
                 <tr>
                     <td>
                         Select an account to make a transfer to:
                         <br>
-                        <select class='Dropdown'>
-                            <option value='2'>Account2</option>
-                            <option value='3'>Account3</option>
+                        <select class='Dropdown' name='trfAccount'>
+                            <%
+                                for (Account a : accountList) {
+                                    if (!a.getAccountNo().equals(curAccount.getAccountNo())) {
+                                        out.println("<option value='" + a.getAccountNo() + "'>" + a.getAccountNo() + "</option>");
+                                    }
+                                }
+                            %> 
                         </select>
                     </td>
                     <td>
@@ -98,18 +102,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class='btn' name='transferbtn' type='submit' value='Transfer'>
+                        <input class='btn' name='transferbtn' type='submit'>
                     </td>
                 </tr>
             </table>
 
-        <script>
-            $('[name="transferbtn"]').click(function () {
-                document.getElementById('acc1').innerHTML = '998,000.00';
-                document.getElementById('acc2').innerHTML = '502,000.00';
-            });
-
-
-        </script>
+        </form>
     </body>
 </html>

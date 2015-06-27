@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <%@page import="java.text.*"%>
+<%@page import="com.ubscase.model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,11 +36,12 @@
         <h5>
             <%
                 session = request.getSession();
-                String balance = (String)session.getAttribute("balance");
-                String account = (String) session.getAttribute("account");
-                double dblBalance = Double.parseDouble(balance);
+                Account account = (Account) session.getAttribute("account");
+                double balance = account.getBalance();
+                String accountNo = account.getAccountNo();
                 DecimalFormat df = new DecimalFormat("###,###.00");
-                out.println(df.format(dblBalance));
+                out.println(df.format(balance));
+
             %></h5>
         <table class='table table-hover'>
             <tr>
@@ -114,6 +116,6 @@
                 });
             </script>
         </div>
-
+    
     </body>
 </html>

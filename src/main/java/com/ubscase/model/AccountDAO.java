@@ -76,4 +76,44 @@ public class AccountDAO {
         }
         return accounts;
     }
+    
+    public void updateAccounts(Account account1, Account account2, double amount) {
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        
+        try {
+
+            con = datasource.getConnection();
+            
+            ps = con.prepareStatement("update account set balance=? where accountNo=?");
+            ps.setDouble(1, account1.getBalance());
+            ps.setString(2, account1.getAccountNo());
+            ps.addBatch();
+            ps.setDouble(1, account2.getBalance());
+            ps.setString(2, account2.getAccountNo());
+            ps.addBatch();
+            ps.executeBatch();
+
+            
+        } catch (Exception e) {
+
+        } finally {
+            
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

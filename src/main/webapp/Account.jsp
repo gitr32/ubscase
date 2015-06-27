@@ -56,11 +56,11 @@
                         Balance
                     </th>
                     <%
+                        int i = 0;
                         DecimalFormat df = new DecimalFormat("###,###.00");
                         for (Account a : accountList) {
                             out.println("<tr>");
-                            out.println("<td><input name='selected' type='radio' value='"+a.getAccountNo()+","+ a.getBalance()+ "'/>");
-                            //out.println("<input type='hidden' name='balance' value='"+a.getBalance()+"'/>");
+                            out.println("<td><input name='selected' type='radio' value='"+ i +"'/>");
                             out.println("<td>");
                             out.println(a.getAccountNo());
                             out.println("</td>");
@@ -68,6 +68,7 @@
                             out.println(df.format(a.getBalance()));
                             out.println("</td>");
                             out.println("</tr>");
+                            i++;
                         }
                     %>
 
