@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<%@page import="com.ubscase.model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,34 +49,28 @@
                     Date
                 </th>
                 <th>
+                    Account
+                </th>
+                <th>
                     Amount
                 </th>
                 <th>
                     Purpose
                 </th>
             </tr>
-            <tr>
-                 <td>
-                    26/5/2015 20:49
-                </td>
-                <td>
-                    2000.00
-                </td>
-                <td>
-                    Funds Transfer
-                </td>   
-            </tr>
-            <tr>
-                <td>
-                    26/5/2015 20:48
-                </td>
-                <td>
-                    558,300.00
-                </td>
-                <td>
-                    Investment
-                </td>
-            </tr>
+            <%
+                TransactionList transactionList = new TransactionList(username);
+                ArrayList<Transaction> allTransactions = transactionList.retrieveTransactions();
+                for(Transaction t: allTransactions) {
+                    out.println("<tr>");
+                    out.println("<td>" + t.getDate()+ "</td>");
+                    out.println("<td>" + t.getAccountNo()+ "</td>");
+                    out.println("<td>" + t.getAmount() + "</td>");
+                    out.println("<td>" + t.getPurpose() + "</td>");
+                    out.println("</tr>");
+                }
+            %>
+            
         </table>
     </body>
 </html>

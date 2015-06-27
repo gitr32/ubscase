@@ -12,22 +12,22 @@ import java.util.*;
  */
 public class Transaction {
     private String accountNo;
-    private Calendar date;
+    private Date date;
     private double amount;
     private String purpose;
 
-    public Transaction(String accountNo, Calendar date, double amount, String purpose) {
+    public Transaction(String accountNo, Date date, double amount, String purpose) {
         this.accountNo = accountNo;
         this.date = date;
         this.amount = amount;
         this.purpose = purpose;
     }
 
-    public Calendar getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

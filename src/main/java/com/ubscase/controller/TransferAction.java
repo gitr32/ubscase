@@ -60,9 +60,13 @@ public class TransferAction extends org.apache.struts.action.Action {
             String trfAccount = request.getParameter("trfAccount");
             String username = (String)session.getAttribute("username");
             AccountList accountList = new AccountList(username);
+            TransactionList transactionList = new TransactionList(username);
             
             Account newAccount = accountList.updateAccount(account.getAccountNo(),trfAccount , dblAmount);
             session.setAttribute("account", newAccount);
+            
+            transactionList.addTransaction(account.getAccountNo(), -dblAmount , "Funds Transfer");
+            transactionList.addTransaction(trfAccount, dblAmount , "Funds Transfer");
         }
         
         
