@@ -41,7 +41,7 @@ public class TransactionDAO {
 
             con = datasource.getConnection();
 
-            ps = con.prepareStatement("select * from transaction where accountNo = ? and order by transdate desc");
+            ps = con.prepareStatement("select * from transaction where accountNo = ? order by transdate desc");
             ps.setString(1, accountNo);
             rs = ps.executeQuery();
              
