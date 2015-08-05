@@ -60,8 +60,8 @@
                 </th>
             </tr>
             <%
-                String accountNo = (String) session.getAttribute("account");
-                TransactionList transactionList = new TransactionList(accountNo);
+                Account account = (Account) session.getAttribute("account");
+                TransactionList transactionList = new TransactionList(account.getAccountNo());
                 ArrayList<Transaction> allTransactions = transactionList.retrieveTransactions();
                 for(Transaction t: allTransactions) {
                     out.println("<tr>");
