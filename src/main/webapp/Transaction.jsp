@@ -21,6 +21,7 @@
     <body>
         <%
             String username = (String) session.getAttribute("username");
+            Account account = (Account) session.getAttribute("account");
             if(username == null) {
                 RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
                 rd.forward(request,response);
@@ -44,13 +45,11 @@
             </li>
         </ul>
         <h5>Transaction History</h5>
+        Account No : <%=account.getAccountNo()%>
         <table class='table table-bordered'>
             <tr>
                 <th>
                     Date
-                </th>
-                <th>
-                    Account
                 </th>
                 <th>
                     Withdrawal
@@ -63,14 +62,14 @@
                 </th>
             </tr>
             <%
-                Account account = (Account) session.getAttribute("account");
+                
                 TransactionList transactionList = new TransactionList(account.getAccountNo());
                 ArrayList<Transaction> allTransactions = transactionList.retrieveTransactions();
                 
                 for(Transaction t: allTransactions) {
                     out.println("<tr>");
                     out.println("<td>" + t.getDate()+ "</td>");
-                    out.println("<td>" + t.getAccountNo()+ "</td>");
+                    //out.println("<td>" + t.getAccountNo()+ "</td>");
                     if(t.getAmount() < 0) {
                         out.println("<td>" + (t.getAmount()*-1) + "</td>");
                         out.println("<td></td>");
