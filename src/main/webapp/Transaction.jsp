@@ -53,7 +53,10 @@
                     Account
                 </th>
                 <th>
-                    Amount
+                    Withdrawal
+                </th>
+                <th>
+                    Deposit
                 </th>
                 <th>
                     Purpose
@@ -63,11 +66,19 @@
                 Account account = (Account) session.getAttribute("account");
                 TransactionList transactionList = new TransactionList(account.getAccountNo());
                 ArrayList<Transaction> allTransactions = transactionList.retrieveTransactions();
+                
                 for(Transaction t: allTransactions) {
                     out.println("<tr>");
                     out.println("<td>" + t.getDate()+ "</td>");
                     out.println("<td>" + t.getAccountNo()+ "</td>");
-                    out.println("<td>" + t.getAmount() + "</td>");
+                    if(t.getAmount() < 0) {
+                        out.println("<td>" + (t.getAmount()*-1) + "</td>");
+                        out.println("<td></td>");
+                    } else {
+                        out.println("<td></td>");
+                        out.println("<td>" +t.getAmount() +"</td>");
+                    }
+                    
                     out.println("<td>" + t.getPurpose() + "</td>");
                     out.println("</tr>");
                 }
