@@ -14,25 +14,22 @@ import java.sql.Date;
  */
 public class TransactionList {
     private TransactionDAO transactionDAO;
-    private AccountDAO accountDAO;
-    private String username;
+    //private AccountDAO accountDAO;
+    private String accountNo;
     
-    public TransactionList (String username){
-        this.username = username;
-        accountDAO = new AccountDAO();
+    public TransactionList (String accountNo){
+        this.accountNo = accountNo;
+        //accountDAO = new AccountDAO();
         transactionDAO = new TransactionDAO();
     }
     
     public ArrayList<Transaction> retrieveTransactions(){
-        ArrayList<Account> accounts = accountDAO.getAccounts(username);
-        ArrayList<String> accountNos = new ArrayList<String>();
+        
         ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
         
-        for(Account a: accounts) {
-            ArrayList<Transaction> accTransList = transactionDAO.retrieveTransactions(a.getAccountNo());
-            transactionList.addAll(accTransList);
-        }
-        
+        ArrayList<Transaction> accTransList = transactionDAO.retrieveTransactions(accountNo);
+        transactionList.addAll(accTransList);
+
         return transactionList;
     }
     
